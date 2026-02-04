@@ -28,7 +28,7 @@ Full system map, install guide, and MCP details → [SETUP.md](SETUP.md)
 
 ### For Humans (Manual Install)
 ```bash
-git clone https://github.com/mayankmahavar/llm-engineering-setup.git
+git clone https://github.com/mayankmahavar111/llm-engineering-setup.git
 cd llm-engineering-setup
 bash install.sh
 ```

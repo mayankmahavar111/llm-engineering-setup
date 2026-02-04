@@ -9,7 +9,7 @@ I need you to create a checkpoint of the current session state and save it to th
 Please perform these steps:
 
 1. **Check if checkpoint exists:**
-   - Run: `python3 /Users/mayankmahavar/llm-engineering-setup/mcp-servers/checkpoint-manager/resume_checkpoint.py "CHECKPOINT_NAME" 2>/dev/null`
+   - Run: `python3 ./mcp-servers/checkpoint-manager/resume_checkpoint.py "CHECKPOINT_NAME" 2>/dev/null`
    - If checkpoint exists, retrieve the existing data for merging
    - If checkpoint doesn't exist, start with empty data
 
@@ -31,7 +31,7 @@ Please perform these steps:
    - Prepare the JSON payload.
    - Run the checkpoint save script:
      ```bash
-     python3 /Users/mayankmahavar/llm-engineering-setup/mcp-servers/checkpoint-manager/save_checkpoint.py <<EOF
+     python3 ./mcp-servers/checkpoint-manager/save_checkpoint.py <<EOF
      {
        "name": "CHECKPOINT_NAME",
        "summary": "...",

@@ -9,20 +9,54 @@ This is a productivity layer built on top of Claude Code (and compatible with an
 A simple flow diagram in text/ascii:
 
 ```
-You type a command or Claude decides to use an agent
-        │
-        ▼
-┌─────────────────┐     ┌──────────────────┐
-│  Slash Commands  │     │     Agents       │
-│  (orchestrate)   │────▶│  (do the work)   │
-└─────────────────┘     └────────┬─────────┘
-                                 │
-                    ┌────────────┴────────────┐
-                    ▼                         ▼
-          ┌──────────────┐        ┌─────────────────┐
-          │  LM Studio   │        │  Checkpoint MCP  │
-          │ (local LLMs) │        │  (session state) │
-          └──────────────┘        └─────────────────┘
+START
+  │
+  ▼
+┌─────────────────────┐
+│  Status Line (live)  │  ← context %, tokens, cache hit rate
+└──────────┬──────────┘
+           ▼
+      ┌─────────┐
+      │ New or  │
+      │ Resume? │
+      └──┬───┬──┘
+    New  │   │  Resume
+         ▼   ▼
+         │  ┌────────────────┐
+         │  │ SQLite Load    │  ← /resume pulls checkpoint
+         │  │ (todos, files, │
+         │  │  decisions)    │
+         │  └───────┬────────┘
+         │          │
+         ▼          ▼
+┌─────────────────────────┐
+│     DEV LIFECYCLE       │
+│                         │
+│  PLAN ──► DESIGN        │  ← /research-and-summarize, decisions logged
+│    │         │           │
+│    ▼         ▼           │
+│  CODE ──► TEST          │  ← agents offload to LM Studio ($0)
+│    │         │           │
+│    ▼         ▼           │
+│  REVIEW ──► DOCS        │  ← /review-pr (6 agents), /generate-docs
+└──────────┬──────────────┘
+           ▼
+      ┌─────────┐
+      │ Context │
+      │  ≥ 75%? │
+      └──┬───┬──┘
+   Yes   │   │  No
+         ▼   ▼
+         │  ┌────────────────┐
+         │  │  /checkpoint   │  ← save state to SQLite
+         │  │  /clear        │  ← reset context
+         │  └───────┬────────┘
+         │          │
+         ▼          ▼
+      ┌─────────────────┐
+      │  Continue or    │
+      │  End session    │
+      └─────────────────┘
 ```
 
 Slash commands are the entry points. They orchestrate. Agents are the workers — they call LM Studio to do heavy lifting locally. The checkpoint MCP keeps state across sessions.
@@ -102,7 +136,7 @@ Available prompts:
 Run once:
 
 ```bash
-git clone https://github.com/mayankmahavar/llm-engineering-setup.git
+git clone https://github.com/mayankmahavar111/llm-engineering-setup.git
 cd llm-engineering-setup
 bash install.sh
 ```

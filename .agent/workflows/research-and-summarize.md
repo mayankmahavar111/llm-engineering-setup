@@ -21,11 +21,11 @@ Research "TOPIC" using the following hybrid workflow to minimize token usage:
 ## Phase 2: Offload to Local LLM (Zero Cost)
 
 4. **Generate Report**
-   - Use `scripts/lm-write-file.sh` to generate the final report.
+   - Use `./scripts/lm-write-file.sh` to generate the final report.
    - **Command**:
      ```bash
-     /Users/mayankmahavar/llm-engineering-setup/scripts/lm-write-file.sh \
-       "/Users/mayankmahavar/llm-engineering-setup/research/TOPIC-summary-DATE.md" \
+     ./scripts/lm-write-file.sh \
+       "$HOME/research/TOPIC-summary-DATE.md" \
        "Write a comprehensive research report on TOPIC based on the provided context." \
        "CONTEXT_WITH_SOURCE_MATERIAL"
      ```
