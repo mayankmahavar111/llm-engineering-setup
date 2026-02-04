@@ -1,0 +1,30 @@
+
+# System
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Data (CRITICAL: Do not commit user data)
+*.db
+*.sqlite
+*.sqlite3
+checkpoints.db
+conversations.db
+test_*.db
+
+# Antigravity/Agent specific (Keep workflows, ignore state)
+.agent/*
+!.agent/workflows
+!.agent/workflows/
+# Note: We want to commit the workflow templates we created
+
+# Claude
+.claude/

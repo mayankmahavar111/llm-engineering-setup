@@ -1,0 +1,5 @@
+# MCP server dependencies
+mcp>=1.0.0
+
+# YAML parsing for checkpoint manager
+pyyaml>=6.0
