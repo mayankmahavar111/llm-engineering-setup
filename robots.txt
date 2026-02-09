@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /ai-orchestration/
+Disallow: /.git/
+Disallow: /.agent/
+Disallow: /.github/
+
+Sitemap: https://mayankmahavar111.github.io/llm-engineering-setup/sitemap.xml

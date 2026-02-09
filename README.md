@@ -1,32 +1,39 @@
-# llm-engineering-setup
+<!-- 
+<meta name="description" content="Open-source AI Engineering Setup: A productivity layer for Claude Code and local LLM agents. Features session persistence, automated code review, and $0 cost local model execution.">
+<meta name="keywords" content="AI Engineering, Local LLM Agents, Claude Code, AI Orchestration, Semantic Memory, Developer Productivity, LLM DevOps, Supabase Vector, LM Studio">
+-->
 
-A productivity layer for AI-assisted development. Slash commands, local LLM agents, session persistence, and automated code review — all running on top of Claude Code.
+# LLM Engineering Setup: AI-Assisted Develoment Environment
 
-## What It Does
+**Productivity Layer for Claude Code, Antigravity & Local LLM Agents**
 
-- **8 slash commands** that automate your dev workflow (research, docs, reviews, checkpoints)
-- **9 agents** that offload code generation, testing, docs, and analysis to local models — at $0 cost
-- **Session persistence** — save and resume context across Claude Code sessions. Zero re-explaining.
-- **6-aspect PR review** — bugs, tests, errors, types, style, simplification. Catches issues before merge.
+A complete toolkit for AI-assisted software engineering. Automate your workflow with local agents, persistent sessions, and slash commands—running on top of **Claude Code**, **Antigravity**, or **Cursor**.
 
-## The Numbers
+## 🚀 Key Features
+
+- **Local LLM Agents**: Offload tasks like docs, testing, and reviews to local models (via LM Studio) for **$0 cost**.
+- **Session Persistence**: Save and resume context across sessions with the `checkpoint` system. Never re-explain your code.
+- **Automated Code Reviews**: 6-aspect PR analysis catching bugs, types, and style issues before merge.
+- **Universal Compatibility**: Works with Claude Code, Antigravity, optimized for Mac/Linux.
+
+## 📊 Performance Metrics
 
 | Metric | Result |
 |--------|--------|
-| Token savings on code gen / docs / tests | 80–90% |
-| Cost of running local agents | $0 |
-| Context loss across sessions | 0 |
-| Dev lifecycle stages covered | 6 (plan → design → code → test → review → docs) |
+| **Token Savings** | 80–90% on code gen / docs / tests |
+| **Operational Cost** | $0 (using Local LLMs) |
+| **Context Retention** | 100% (via Checkpoints) |
+| **Dev Lifecycle** | Covers Planning → Coding → Testing → Review → Docs |
 
-## How It Works
+## 🛠️ How It Works
 
-Claude handles the thinking. Local LLM agents (via LM Studio) handle the execution. A checkpoint system keeps state across sessions so nothing is ever lost.
+**Claude** (or your main AI) handles the high-level reasoning. **Local LLM Agents** handle the execution. A **SQLite-backed Checkpoint System** ensures state is never lost.
 
-Full system map, install guide, and MCP details → [SETUP.md](SETUP.md)
+Full system architecture and installation guide → [SETUP.md](SETUP.md)
 
-## Quick Start
+## ⚡ Quick Start
 
-### For Humans (Manual Install)
+### For Developers (Manual Install)
 ```bash
 git clone https://github.com/mayankmahavar111/llm-engineering-setup.git
 cd llm-engineering-setup
@@ -34,27 +41,28 @@ bash install.sh
 ```
 
 ### For AI Agents (Universal Setup)
-1.  **Open this repo** in your AI Editor (Antigravity, Cursor, etc.).
+1.  **Open this repo** in your AI Editor.
 2.  **Drag and drop** `AGENTS.md` into the chat.
 3.  **Say**: "Follow these instructions to set up my environment."
 
-The AI will detect your environment (Claude vs Antigravity vs Cursor) and configure itself automatically.
+*Requires: Python 3.9+, LM Studio (server on port 1234), `uv`.*
 
-Requires: Python 3.9+, LM Studio (port 1234), `uv`.
+## 📂 Repository Structure
 
-## What's Inside
+| Folder | Contents |
+|--------|----------|
+| `slash-commands/` | **Claude Code Slash Commands** for research, docs, and reviews |
+| `agents/` | **Local Agent Definitions** for autonomous task execution |
+| `mcp-servers/` | **Checkpoint Manager MCP** (SQLite-backed persistence) |
+| `scripts/` | Utility scripts for model management and usage logging |
+| `generate-your-own/` | Prompt templates to generate custom tools |
 
-| Folder | What |
-|--------|------|
-| `slash-commands/` | Claude Code slash commands — copy to `~/.claude/commands/` |
-| `agents/` | Agent definitions — copy to `~/.claude/agents/` |
-| `mcp-servers/` | Checkpoint manager MCP server (SQLite-backed) |
-| `scripts/` | Example utility scripts (model manager, usage logger, etc.) |
-| `generate-your-own/` | Prompt templates — paste into any AI to generate custom scripts for your setup |
+## 🔗 Integrations
 
-## Not Just Claude Code
-
-The architecture works with any AI coding tool. The prompts, agent logic, and checkpoint concept are tool-agnostic. See the "For AI Tools" section in [SETUP.md](SETUP.md) for how to adapt.
+- **Claude Code**: Native slash command support.
+- **Antigravity**: optimized agent tools.
+- **LM Studio**: Local model inference server.
+- **Supabase**: Vector database integration (optional).
 
 ## License
 

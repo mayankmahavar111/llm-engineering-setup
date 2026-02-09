@@ -28,3 +28,7 @@ test_*.db
 
 # Claude
 .claude/
+
+# Node.js
+node_modules/
+*/node_modules/
